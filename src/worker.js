@@ -1,40 +1,43 @@
 export default {
   async fetch(request, env) {
+    console.log('Environment keys:', Object.keys(env));
+    
     const url = new URL(request.url);
     
-    // 访问根目录
+    // 首页处理
     if (url.pathname === '/' || url.pathname === '/index.html') {
+      // 检查 ASSETS 绑定
+      if (!env.ASSETS) {
+        return new Response('ASSETS binding not found. Available bindings: ' + Object.keys(env).join(', '), {
+          headers: { 'content-type': 'text/plain' }
+        });
+      }
+      
       try {
-        // 检查是否有 ASSETS 绑定
-        if (!env.ASSETS) {
-          return new Response('Please add assets configuration to wrangler.jsonc', {
-            headers: { 'content-type': 'text/plain' }
-          });
-        }
-        
-        // 获取 api.enc 文件
-        const apiEncUrl = new URL('/api.enc', url.origin);
-        const response = await env.ASSETS.fetch(new Request(apiEncUrl));
+        // 尝试获取 api.enc
+        const response = await env.ASSETS.fetch(new Request(`${url.origin}/api.enc`));
         
         if (response.status === 404) {
-          return new Response('File api.enc not found in root directory', {
+          return new Response('api.enc not found at root directory', { 
             status: 404,
             headers: { 'content-type': 'text/plain' }
           });
         }
         
-        // 返回文件
         return response;
-        
       } catch (error) {
-        return new Response(`Error: ${error.message}`, {
+        return new Response('Error fetching file: ' + error.message, {
           status: 500,
           headers: { 'content-type': 'text/plain' }
         });
       }
     }
     
-    // 其他请求（包括直接访问 /api.enc）
-    return env.ASSETS.fetch(request);
+    // 其他请求
+    if (env.ASSETS) {
+      return env.ASSETS.fetch(request);
+    }
+    
+    return new Response('Not Found', { status: 404 });
   }
 };
