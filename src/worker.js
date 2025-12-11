@@ -26,7 +26,7 @@ export default {
         if (response.status === 200) {
           const headers = new Headers(response.headers);
           headers.set("Content-Type", "application/octet-stream");
-          headers.set("Content-Disposition", 'attachment; filename="api.enc"');
+          headers.set("Content-Disposition", 'attachment; filename="api"');
           return new Response(response.body, { status: 200, headers });
         }
 
