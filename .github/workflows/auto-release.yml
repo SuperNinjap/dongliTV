@@ -1,50 +1,35 @@
-name: 📦 Auto Publish Release
+name: Release
 
 on:
   push:
     tags:
-      - 'v*.*.*'                # 只对v开头的语义化版本标签触发，例如 v1.2.3
+      - 'v*'
 
 jobs:
-  publish:
+  build:
     runs-on: ubuntu-latest
     permissions:
-      contents: write           # 必需权限：写入仓库内容以创建Release
+      contents: write
 
     steps:
-      # 1. 获取代码
-      - name: 🛎️ Checkout repository
+      - name: Checkout
         uses: actions/checkout@v4
-        with:
-          fetch-depth: 0        # 获取全部历史，确保标签信息完整
 
-      # 2. 创建过滤后的发布包（核心步骤）
-      - name: 📦 Create filtered release package
+      - name: Print Debug Info
         run: |
-          # 提取标签名（如 v1.2.3）
-          TAG_NAME="${GITHUB_REF#refs/tags/}"
-          # 定义输出文件名
-          RELEASE_ZIP="dongliTV-${TAG_NAME}.zip"
-          # 关键命令：使用git archive打包，它会自动应用.gitattributes中的export-ignore规则
-          git archive --format=zip --output="${RELEASE_ZIP}" HEAD
-          # 将文件名设置为环境变量，供后续步骤使用
-          echo "RELEASE_ZIP=${RELEASE_ZIP}" >> $GITHUB_ENV
-          # 简单列出包内内容以便在日志中验证
-          echo "Package contents (top 10):"
-          unzip -l "${RELEASE_ZIP}" | head -12
+          echo "当前标签: ${{ github.ref_name }}"
+          ls -la
 
-      # 3. 创建GitHub Release并上传资产
-      - name: 🚀 Create GitHub Release
+      - name: Create ZIP
+        run: |
+          ZIP_NAME="dongliTV-${{ github.ref_name }}.zip"
+          echo "正在创建压缩包: $ZIP_NAME"
+          git archive -v --format=zip HEAD -o "$ZIP_NAME"
+          ls -lh "$ZIP_NAME"
+
+      - name: Create Release
         uses: softprops/action-gh-release@v1
         with:
-          # 基本设置
-          generate_release_notes: true    # 自动从提交记录生成更新说明
-          draft: false                     # 直接发布，非草稿
-          prerelease: false                # 正式版，非预发布
-          # 资产文件设置
+          generate_release_notes: true
           files: |
-            ${{ env.RELEASE_ZIP }}        # 上传我们刚刚创建的自定义ZIP包
-          # 可选的附加设置
-          # fail_on_unmatched_files: false # 如果文件未找到不使构建失败（按需开启）
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # GitHub自动提供的凭证
+            dongliTV-${{ github.ref_name }}.zip
