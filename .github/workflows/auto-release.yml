@@ -12,55 +12,69 @@ jobs:
       contents: write
 
     steps:
-      # 1. 检出代码
       - name: Checkout
         uses: actions/checkout@v4
 
-      # 2. 调试信息（可选）
-      - name: Print Debug Info
+      - name: Create Release ZIP
         run: |
-          echo "当前标签: ${{ github.ref_name }}"
-          ls -la
-
-      # 3. 创建发布ZIP包（应用.gitattributes过滤）
-      - name: Create ZIP
-        run: |
-          ZIP_NAME="dongliTV-${{ github.ref_name }}.zip"
-          echo "正在创建压缩包: $ZIP_NAME"
-          git archive -v --format=zip HEAD -o "$ZIP_NAME"
+          TAG_NAME="${{ github.ref_name }}"
+          ZIP_NAME="dongliTV-$TAG_NAME.zip"
+          echo "📦 创建发布包: $ZIP_NAME"
+          git archive --format=zip HEAD -o "$ZIP_NAME"
           ls -lh "$ZIP_NAME"
           echo "RELEASE_ZIP=$ZIP_NAME" >> $GITHUB_ENV
 
-      # 4. 生成版本信息文件
-      - name: Generate version.json
+      # 核心改变：使用 GitHub API 创建/更新 version.json
+      - name: Create or Update version.json via API
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           TAG_NAME="${{ github.ref_name }}"
-          cat > version.json << EOF
+          JSON_CONTENT=$(cat <<EOF
           {
             "version": "$TAG_NAME",
             "url": "https://github.com/chitue/dongliTV/releases/download/$TAG_NAME/dongliTV-$TAG_NAME.zip",
-            "notes": "https://github.com/chitue/dongliTV/releases/tag/$TAG_NAME",
-            "size": $(stat -c%s "${{ env.RELEASE_ZIP }}" 2>/dev/null || echo 0),
-            "sha256": "$(sha256sum "${{ env.RELEASE_ZIP }}" 2>/dev/null | cut -d' ' -f1 || echo '')"
+            "notes": "https://github.com/chitue/dongliTV/releases/tag/$TAG_NAME"
           }
           EOF
-          echo "生成的 version.json 内容："
-          cat version.json
+          )
+          
+          # 对JSON内容进行Base64编码（API要求）
+          CONTENT_B64=$(echo "$JSON_CONTENT" | base64 | tr -d '\n')
+          
+          # 使用GitHub API获取文件当前SHA（如果存在）
+          echo "获取 version.json 当前状态..."
+          API_RESPONSE=$(curl -s -H "Authorization: token $GH_TOKEN" \
+            -H "Accept: application/vnd.github.v3+json" \
+            "https://api.github.com/repos/${{ github.repository }}/contents/version.json" || echo '{}')
+          
+          SHA=$(echo "$API_RESPONSE" | grep -o '"sha": "[^"]*"' | cut -d'"' -f4)
+          
+          # 构建API请求JSON
+          API_JSON=$(cat <<EOF
+          {
+            "message": "chore: update version info to $TAG_NAME",
+            "content": "$CONTENT_B64"
+          }
+          EOF
+          )
+          
+          # 如果文件已存在，添加sha字段用于更新
+          if [ -n "$SHA" ]; then
+            API_JSON=$(echo "$API_JSON" | jq --arg sha "$SHA" '. + {sha: $sha}')
+          fi
+          
+          # 创建或更新文件
+          echo "提交 version.json 到仓库..."
+          curl -X PUT -H "Authorization: token $GH_TOKEN" \
+            -H "Accept: application/vnd.github.v3+json" \
+            -d "$API_JSON" \
+            "https://api.github.com/repos/${{ github.repository }}/contents/version.json"
+          echo "✅ version.json 已更新"
 
-      # 5. 提交版本文件到主分支（创建固定访问点）
-      - name: Commit version.json to main branch
-        run: |
-          git config --global user.name 'github-actions[bot]'
-          git config --global user.email 'github-actions[bot]@users.noreply.github.com'
-          git add version.json
-          git commit -m "chore: update version info to ${{ github.ref_name }}"
-          git push origin main
-
-      # 6. 创建GitHub Release并上传文件
-      - name: Create Release
+      - name: Publish GitHub Release
         uses: softprops/action-gh-release@v1
         with:
           generate_release_notes: true
           files: |
             ${{ env.RELEASE_ZIP }}
-            version.json
