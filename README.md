@@ -15,11 +15,14 @@ file://dp/py.json
 ✔️cookie固定保存目录：/storage/emulated/0/TVData/cookie
 ✔️数据库固定保存目录：/storage/emulated/0/TVData/db
 ✔️配置文件固定保存目录：/storage/emulated/0/TVData/config
+✔️商店里APK和本地包下载目录：/storage/emulated/0/Download/
 ✔️本地数据库需要指定自定义映射配置文件，具体映射参考示例配置
 https://v6.gh-proxy.org/https://raw.githubusercontent.com/chitue/dongliTV/refs/heads/main/config/local_database_mapping.json
 ✔️网盘类播放需要配置中心提前设置cookie
 ✔️cookie默认会存储到本地/storage/emulated/0/TVData/cookie
 ✔️cookie云备份恢复通过配置凯速access_token可以将本地cookie存储到凯速直链云存储里面，实现多设备一键恢复cookie配置
+✔️凯速access_token默认保存地址/storage/emulated/0/TVData/kstore_token.txt
+
 凯速access_token请到以下页面底部获取
 https://my.ksust.com/kstore.htm?aff=16151
 
