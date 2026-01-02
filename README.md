@@ -15,7 +15,7 @@ js爬虫入口
 file://dp/js.json
 
 本地包说明
-✔️本地包支持改名字
+✔️本地包支持改名字，例如：file://dongli/api.json
 ✔️支持任义路径放置本地包
 ✔️推荐本地包根目录：/storage/emulated/0/dp/
 ✔️cookie固定保存目录：/storage/emulated/0/TVData/cookie
