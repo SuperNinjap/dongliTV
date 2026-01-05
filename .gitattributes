@@ -15,6 +15,10 @@ api                     export-ignore
 *api                    export-ignore
 /api                    export-ignore
 
+# ====== 排除根目录下的 bin/linux 目录 ======
+bin/linux/             export-ignore
+./bin/linux/           export-ignore
+
 # ====== IDE和编辑器配置 ======
 .vscode/                export-ignore
 .idea/                  export-ignore
