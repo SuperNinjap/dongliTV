@@ -123,7 +123,7 @@
         },
         {
             "key": "tingchina",
-            "name": "☠️｜海盗｜听书",
+            "name": "⛵｜海盗｜听书",
             "type": 3,
             "api": "csp_TingChina",
             "changeable": 0,
@@ -438,7 +438,9 @@
                     "https://so.252035.xyz/api/search",
                     "https://so.566987.xyz/api/search",
                     "http://154.17.15.197:8080/api/search",
-                    "http://152.69.222.142:8088/api/search"
+                    "http://152.69.222.142:8088/api/search",
+                    "https://pan.wnng.cn",
+                    "http://117.82.58.102:3002"
                 ],
                 "sources": [
                     "夸克"
@@ -459,7 +461,9 @@
                     "https://so.252035.xyz/api/search",
                     "https://so.566987.xyz/api/search",
                     "http://154.17.15.197:8080/api/search",
-                    "http://152.69.222.142:8088/api/search"
+                    "http://152.69.222.142:8088/api/search",
+                    "https://pan.wnng.cn",
+                    "http://117.82.58.102:3002"
                 ],
                 "sources": [
                     "UC"
@@ -480,7 +484,9 @@
                     "https://so.252035.xyz/api/search",
                     "https://so.566987.xyz/api/search",
                     "http://154.17.15.197:8080/api/search",
-                    "http://152.69.222.142:8088/api/search"
+                    "http://152.69.222.142:8088/api/search",
+                    "https://pan.wnng.cn",
+                    "http://117.82.58.102:3002"
                 ],
                 "sources": [
                     "阿里"
@@ -501,7 +507,9 @@
                     "https://so.252035.xyz/api/search",
                     "https://so.566987.xyz/api/search",
                     "http://154.17.15.197:8080/api/search",
-                    "http://152.69.222.142:8088/api/search"
+                    "http://152.69.222.142:8088/api/search",
+                    "https://pan.wnng.cn",
+                    "http://117.82.58.102:3002"
                 ],
                 "sources": [
                     "百度"
@@ -522,7 +530,9 @@
                     "https://so.252035.xyz/api/search",
                     "https://so.566987.xyz/api/search",
                     "http://154.17.15.197:8080/api/search",
-                    "http://152.69.222.142:8088/api/search"
+                    "http://152.69.222.142:8088/api/search",
+                    "https://pan.wnng.cn",
+                    "http://117.82.58.102:3002"
                 ],
                 "sources": [
                     "123盘"
@@ -543,7 +553,9 @@
                     "https://so.252035.xyz/api/search",
                     "https://so.566987.xyz/api/search",
                     "http://154.17.15.197:8080/api/search",
-                    "http://152.69.222.142:8088/api/search"
+                    "http://152.69.222.142:8088/api/search",
+                    "https://pan.wnng.cn",
+                    "http://117.82.58.102:3002"
                 ],
                 "sources": [
                     "天翼"
@@ -564,7 +576,9 @@
                     "https://so.252035.xyz/api/search",
                     "https://so.566987.xyz/api/search",
                     "http://154.17.15.197:8080/api/search",
-                    "http://152.69.222.142:8088/api/search"
+                    "http://152.69.222.142:8088/api/search",
+                    "https://pan.wnng.cn",
+                    "http://117.82.58.102:3002"
                 ],
                 "sources": [
                     "移动"
@@ -585,7 +599,9 @@
                     "https://so.252035.xyz/api/search",
                     "https://so.566987.xyz/api/search",
                     "http://154.17.15.197:8080/api/search",
-                    "http://152.69.222.142:8088/api/search"
+                    "http://152.69.222.142:8088/api/search",
+                    "https://pan.wnng.cn",
+                    "http://117.82.58.102:3002"
                 ],
                 "sources": [
                     "磁力"
