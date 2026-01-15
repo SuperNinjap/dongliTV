@@ -662,7 +662,8 @@
             "style": {
                 "type": "list"
             },
-            "timeout": 30
+            "timeout": 30,
+            "ext": "./config/myuc.json"
         },
         {
             "key": "myquark",
@@ -693,7 +694,8 @@
             "style": {
                 "type": "list"
             },
-            "timeout": 30
+            "timeout": 30,
+            "ext": "./config/mybaidu.json"
         },
         {
             "key": "myali",
