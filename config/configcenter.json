@@ -15,6 +15,12 @@
                 "des": "状态"
             },
             {
+                "name": "Go引擎",
+                "key": "mediaproxyDNS",
+                "icon": "",
+                "des": "DNS"
+            },
+            {
                 "name": "盘搜",
                 "key": "pansouDomain",
                 "icon": "",
@@ -58,6 +64,41 @@
         ]
     },
     {
+        "name": "百度",
+        "list": [
+            {
+                "name": "清除cookie",
+                "key": "cleanBaiduCookie",
+                "icon": "",
+                "des": ""
+            },
+            {
+                "name": "设置cookie",
+                "key": "setBaiduCookie",
+                "icon": "",
+                "des": ""
+            },
+            {
+                "name": "多线程",
+                "key": "setBaiduMultiThread",
+                "icon": "",
+                "des": ""
+            },
+            {
+                "name": "手动清理",
+                "key": "cleanBaiduTempDir",
+                "icon": "",
+                "des": "手动清理tv_temp_saved目录全部文件"
+            },
+            {
+                "name": "自动清理",
+                "key": "baiduVideoCacheTime",
+                "icon": "",
+                "des": "设置自动清理tv_temp_saved目录文件缓存时间"
+            }
+        ]
+    },
+    {
         "name": "夸氪",
         "list": [
             {
@@ -77,6 +118,18 @@
                 "key": "setQuarkMultiThread",
                 "icon": "",
                 "des": ""
+            },
+            {
+                "name": "手动清理",
+                "key": "cleanQuarkTempDir",
+                "icon": "",
+                "des": "手动清理tv_temp_saved目录全部文件"
+            },
+            {
+                "name": "自动清理",
+                "key": "quarkVideoCacheTime",
+                "icon": "",
+                "des": "设置自动清理tv_temp_saved目录文件缓存时间"
             }
         ]
     },
@@ -100,29 +153,18 @@
                 "key": "setUcMultiThread",
                 "icon": "",
                 "des": ""
-            }
-        ]
-    },
-    {
-        "name": "百度",
-        "list": [
-            {
-                "name": "清除cookie",
-                "key": "cleanBaiduCookie",
-                "icon": "",
-                "des": ""
             },
             {
-                "name": "设置cookie",
-                "key": "setBaiduCookie",
+                "name": "手动清理",
+                "key": "cleanUcTempDir",
                 "icon": "",
-                "des": ""
+                "des": "手动清理tv_temp_saved目录全部文件"
             },
             {
-                "name": "多线程",
-                "key": "setBaiduMultiThread",
+                "name": "自动清理",
+                "key": "ucVideoCacheTime",
                 "icon": "",
-                "des": ""
+                "des": "设置自动清理tv_temp_saved目录文件缓存时间"
             }
         ]
     },
@@ -146,6 +188,18 @@
                 "key": "setAliMultiThread",
                 "icon": "",
                 "des": ""
+            },
+            {
+                "name": "手动清理",
+                "key": "cleanAliTempDir",
+                "icon": "",
+                "des": "手动清理tv_temp_saved目录全部文件"
+            },
+            {
+                "name": "自动清理",
+                "key": "aliVideoCacheTime",
+                "icon": "",
+                "des": "设置自动清理tv_temp_saved目录文件缓存时间"
             }
         ]
     },
@@ -161,6 +215,12 @@
             {
                 "name": "设置cookie",
                 "key": "setTianyiCookie",
+                "icon": "",
+                "des": ""
+            },
+            {
+                "name": "多线程",
+                "key": "setTianyiMultiThread",
                 "icon": "",
                 "des": ""
             }

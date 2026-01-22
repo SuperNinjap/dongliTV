@@ -620,40 +620,6 @@
             }
         },
         {
-            "key": "灵虎",
-            "name": "🎃｜灵虎｜APP",
-            "type": 3,
-            "api": "csp_AppGet",
-            "searchable": 1,
-            "quickSearch": 1,
-            "changeable": 0,
-            "filterable": 1,
-            "timeout": 30,
-            "ext": {
-                "site": "https://bind.315999.xyz/89.txt",
-                "dataKey": "#getapp@TMD@2025",
-                "dataIv": "#getapp@TMD@2025",
-                "version": "120"
-            }
-        },
-        {
-            "key": "旗星",
-            "name": "🎃｜旗星｜APP",
-            "type": 3,
-            "api": "csp_AppGet",
-            "searchable": 1,
-            "quickSearch": 1,
-            "changeable": 0,
-            "filterable": 1,
-            "timeout": 30,
-            "ext": {
-                "url": "http://ys.qist.top",
-                "dataKey": "2SWSPFxugBLPPOKo",
-                "dataIv": "2SWSPFxugBLPPOKo",
-                "version": "120"
-            }
-        },
-        {
             "key": "push_agent",
             "name": "📢｜推送｜中心",
             "type": 3,
