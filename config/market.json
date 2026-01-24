@@ -32,18 +32,6 @@
         "name": "本地包",
         "list": [
             {
-                "name": "本地包",
-                "url": "dongliTV",
-                "icon": "",
-                "copy": "",
-                "version": ""
-            }
-        ]
-    },
-    {
-        "name": "关于",
-        "list": [
-            {
                 "name": "官方网站",
                 "url": "https://chigua.eu.org",
                 "icon": "",
@@ -60,6 +48,13 @@
             {
                 "name": "更新日志",
                 "url": "https://v6.gh-proxy.org/https://raw.githubusercontent.com/chitue/dongliTV/refs/heads/main/CHANGELOG.md",
+                "icon": "",
+                "copy": "",
+                "version": ""
+            },
+            {
+                "name": "本地包",
+                "url": "dongliTV",
                 "icon": "",
                 "copy": "",
                 "version": ""

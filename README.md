@@ -1,9 +1,8 @@
-注意：仅交流学习
-    
 推荐使用OK影视或者影视最新版壳
 最低兼容安卓6，如果发现播放时闪退等情况，请请使用影视最新版本切换ijk播放核心。
 
-❣️注意请切勿在网盘tv_temp_saved目录放重要文件，此目录仅作为视频播放服务临时转存目录会不定期清除！
+❣️注意：仅交流学习，请勿用于商业用途，视频中出现的任何广告，请勿相信！！！！！
+❣️注意：请切勿在网盘tv_temp_saved目录放重要文件，此目录仅作为视频播放服务临时转存目录会不定期清除！
 
 点播地址填写
 
@@ -46,32 +45,10 @@ https://my.ksust.com/kstore.htm?aff=16151
 
 网盘优先顺序个人推荐，百度，夸克，UC，阿里，天翼，123(每月20G流量)
 
-网盘分享站点
-立播夸克，UC盘，百度盘
-https://www.libvio.link
-
-123社区，123盘
-https://123panfx.com
-
-海绵小站，天翼盘
-https://kkapi.eu.org/
-https://www.haimianxz.com/
-
-雷琼社区，天翼盘
-https://www.leijing.xyz/
-
-比心，移动盘
-https://www.bixbiy.com/
-
-盘他，移动
-https://www.91panta.cn
-🔍搜索
-太极搜索，综合性TG频道资源搜索
-https://tgsou.252035.xyz
-
-盘搜
-https://so.252035.xyz 
-https://so.566987.xyz 
-https://pan.wnng.cn
-
-百酷，米搜，酷乐，爱看，鬼鬼，盘搜，糖果搜，太极搜索，TG搜
+东篱影视专用资源网盘下载`
+UC
+https://drive.uc.cn/s/084710ec4dc04?public=1
+夸克
+https://pan.quark.cn/s/514a56ac6d23
+百度
+https://pan.baidu.com/s/13JGvmZlFIqJblaDFRGthVQ?pwd=2026
